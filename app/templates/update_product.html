@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+{%from '_macros.html' import render_field%}
+<div class="row">
+    <div class="col-11">
+        <form action="/update-product" method="POST" enctype="multipart/form-data">
+            <div class="row control_group">
+                <div class="from-group col-xs-12 float-label-form-group controls">
+                    {{render_field(form.id, class='form-control disabled')}}
+                </div>
+            </div>
+            <div class="row control_group">
+                <div class="from-group col-xs-12 float-label-form-group controls">
+                    {{render_field(form.name, class='form-control')}}
+                </div>
+            </div>
+            <div class="row control_group">
+                <div class="from-group col-xs-12 float-label-form-group controls">
+                    {{render_field(form.price, class='form-control')}}
+                </div>
+            </div>
+            <div class="row control_group">
+                <div class="from-group col-xs-12 float-label-form-group controls">
+                    {{render_field(form.photo, class='form-control')}}
+                </div>
+            </div>
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+            <input type="submit" name="update_product" id="update_product" value="Update">
+        </form>
+    </div>
+</div>
+{%endblock%}

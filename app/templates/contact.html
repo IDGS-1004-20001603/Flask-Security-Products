@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">
+                Contacto
+            </p>
+        </div>
+        <div class="hero-content">
+            <div class="field">
+                <div class="control">
+                    <input type="text" class="input" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input type="text" class="input" placeholder="Telefono">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" cols="30" rows="10" placeholder="Escribe tu mensaje"></textarea>
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link">Enviar</button>
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light">Cancelar</button>
+                </div>
+        </div>
+    </section>
+</div>
+{%endblock%}

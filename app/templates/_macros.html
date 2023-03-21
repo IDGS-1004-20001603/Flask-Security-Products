@@ -1,0 +1,40 @@
+{% macro render_field(field)%}
+<div class="control-group">
+    <div class="controls">
+        {{field.label}}
+        {{field(**kwargs) | safe}}
+    </div>
+</div>
+{%if field.errors%}
+<ul>
+    {%for error in field.errors%}
+    <li style="color: red;">
+        {{error}}
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
+{% endmacro %}
+
+{% macro render_card(name, img, price) %}
+
+<div class="card">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="data:image/png;base64,{{img}}" height="100" width="100">
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4">
+                    {{name}}
+                </p>
+                <p class="subtitle is-5">
+                    ${{price}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}

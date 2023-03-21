@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="container">
+    <section class="hero">
+        <div class="hero-body">
+            <p class="title">
+                Catalogo de Productos
+            </p>
+        </div>
+        <div class="hero-subtitle">
+            <div class="columns is-mobile">
+                {% from "_macros.html" import render_card %}
+                {%for product in products%}
+                <div class="column">
+                    {{render_card(product.name, product.photo, product.price)}}
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+</div>
+{%endblock%}

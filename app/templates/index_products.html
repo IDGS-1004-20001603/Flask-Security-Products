@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block content%}
+<section class="hero">
+    <div class="hero-body">
+        <div class="text-right">
+            <a href="{{url_for('main.insert_product')}}" class="button is-success"><i class="fas fa-plus"></i>
+                Insert</a>
+        </div>
+    </div>
+</section>
+<div class="container is-fluid">
+    <section class="hero">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                    <th>Modification</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for product in products%}
+                <tr>
+                    <th>{{product.name}}</th>
+                    <th>{{product.price}}</th>
+                    <th><img src="data:image/png;base64,{{product.photo}}" height="100" width="100"></th>
+                    <th><a href="{{url_for('main.update_product')}}?id={{product.id}}" class="button is-info"><i
+                                class="fas fa-pencil-alt"></i> Update</a></th>
+                    <th><a href="{{url_for('main.delete_product')}}?id={{product.id}}" class="button is-danger"><i
+                                class="far fa-window-close"></i> Delete</a></th>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </section>
+</div>
+{%endblock%}
